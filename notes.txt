@@ -1,0 +1,134 @@
+this is the flow of the game, determine who goes first
+    once established p1 places symbol once✅
+    then p2 has a turn✅
+    then p1 again✅
+    Once three symbols are placed we can begin checking for winner
+    once all squares are filled, if no winner, tie
+    will be made for 2 human players
+
+
+the structure of the game✅
+    3 x 3 grid✅
+    symbols✅
+    players✅
+        for each player we need to query their input
+        place said input in desired box
+        
+    maybe display updated terminal based on winner✅
+
+
+[0, 0] [0, 1] [0, 2]
+
+[1, 0] [1, 1] [1, 2]
+
+[2, 0] [2, 1] [2, 2]
+
+
+tictactoe winner pseudo
+
+void winner()
+    for (int i = 0; i < 2; i++){
+        if (grid[i][0] == grid[i][1] && grid[i][1] == grid[i][2] && grid[i][0] != 0 //vertical victory
+        {
+            print winner 
+        }
+    }
+     
+    for (int i = 0; i < 2; i++){
+        if (grid[0][i] == grid[1][i] && grid[1][i] == grid[2][i] && grid[0][i] != 0) //horizontal victory
+        {
+            print winner
+        }
+    }
+
+    if (grid[0][0] == grid[1][1] && grid[1][1] == grid[2][2] && grid[0][0] != 0) //diagonal victory
+    {
+        print winner
+    }
+
+    if (grid[0][2] == grid[1][1] && grid[1][1] == grid[2][0] && grid[0][2] != 0) //diagonal victory
+    {
+        print winner
+    }
+
+  
+  tic tac toe official pseudo
+
+  first for loop checks for rows
+  if the ith row are all the same symbol then theres must be a winner
+  assign the player the winner and end the game
+  same for jth column 
+  then if the same symbol is placed where both numbers in array are the same there must be a winner
+  assign the player the winner and end game
+  then if the same symbol is placed where 
+
+
+void winner() {
+    for (int i = 0; i < MAX; i++)
+    {
+        if (grid[i][0].symbol == grid[i][1].symbol && grid[i][1].symbol == grid[i][2].symbol)
+        {
+            if (grid[i][0].symbol == player1.playerSymbol)
+            {
+                player1.hasWon = true;
+                break;
+            }
+            else if (grid[i][0].symbol == player2.playerSymbol)
+            {
+                player2.hasWon = true;
+                break;
+            }
+        }
+    }
+
+    for (int j = 0; j < MAX; j++)
+    {
+        if (grid[0][j].symbol == grid[1][j].symbol && grid[1][j].symbol == grid[2][j].symbol)
+        {
+            if (grid[0][j].symbol == player1.playerSymbol)
+            {
+                player1.hasWon = true;
+                break;
+            }
+            else if (grid[0][j].symbol == player2.playerSymbol)
+            {
+                player1.hasWon = true;
+                break;
+            }
+        }
+    }
+
+    if (grid[0][0].symbol == grid[1][1].symbol && grid[1][1].symbol == grid[2][2].symbol)
+    {
+        if (grid[0][0].symbol == player1.playerSymbol)
+        {
+            player1.hasWon = true;
+        }
+        else if (grid[0][0].symbol == player2.playerSymbol)
+        {
+            player2.hasWon = true;
+        }
+    }
+
+    if (grid[0][2].symbol == grid[1][1].symbol && grid[1][1].symbol == grid[2][0].symbol)
+    {
+        if (grid[0][2].symbol == player1.playerSymbol)
+        {
+            player1.hasWon = true;
+        }
+        else if (grid[0][2].symbol == player2.playerSymbol)
+        {
+            player2.hasWon = true;
+        }
+    }
+
+    if (player1.hasWon == true)
+    {
+        std::cout << "Player 1 has won!" << std::endl;
+    }
+    else if (player2.hasWon == true)
+    {
+        std::cout << "Player 2 has won!" << std::endl;
+    }
+}
+
